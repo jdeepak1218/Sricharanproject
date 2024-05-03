@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project Demo</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Project Demo</h1>
+        <br/>
+        <p>
+            
+ We have created the bottom sheet dialog for that first of all i have to create a new project as empty view activity
+ for empty sheet dialog
+ <br/>
+ ***Creating the logo as SplashActivity.kt file:
+ <br/>
+ This helps provide a smoother user experience and gives the application time to initialize resources or perform any necessary setup tasks before presenting the main interface to the user.
+ This code defines a `SplashActivity`, which serves as a splash screen for the application. Here's an overview:<br/>
+ 
+ - **Inheritance**: The `SplashActivity` class inherits from `AppCompatActivity`, which is the base class for activities that use the support library action bar features.
+ <br/>
+ - **Properties**:<br/>
+   - `SPLASH_DELAY`: This constant represents the delay time for displaying the splash screen in milliseconds.
+ <br/>
+ - **Methods**:<br/>
+   - `onCreate()`: This method is called when the activity is starting. In this method:
+     - The layout for the splash screen is set using `setContentView()`, which inflates the layout defined in the `activity_splash.xml` file.
+     - A `Handler` is used to post a delayed action that starts the main activity after the specified `SPLASH_DELAY`. Inside the delayed action, an `Intent` is created to start the `MainActivity`, and the current activity (`SplashActivity`) is finished.
+ <br/>
+ - **Purpose**: The `SplashActivity` provides a visual transition or loading screen when the application starts. It typically displays a logo or branding for a short period before transitioning to the main activity. 
+ <br/>
+ ********create the activity_splash.xml file
+ <br/>
+ Overall, this layout file defines a simple splash screen with a centered image view displaying an image named `bring_to_mind`. The background color of the layout is set to black.
+ <br/>
+ This XML layout defines the visual appearance of the splash screen (`activity_splash.xml`). Here's an overview:
+ 
+ - **Root Layout**: The root layout is a `RelativeLayout` which allows positioning views relative to each other or the parent layout.
+ <br/>
+ - **Namespaces**:
+   - `xmlns:android="http://schemas.android.com/apk/res/android"`: Defines the Android namespace.
+   - `xmlns:tools="http://schemas.android.com/tools"`: Defines the tools namespace, which is used for design-time attributes.
+ <br/>
+ - **Attributes**:
+   - `android:layout_width="match_parent"`: Specifies that the width of the layout should match the width of its parent.
+   - `android:layout_height="match_parent"`: Specifies that the height of the layout should match the height of its parent.
+   - `android:background="@color/black"`: Sets the background color of the layout to black.
+ <br/>
+ - **ImageView**:
+   - `android:id="@+id/imageView_splash_logo"`: Assigns the identifier `imageView_splash_logo` to the `ImageView` element.
+   - `android:layout_width="wrap_content"`: Specifies that the width of the `ImageView` should wrap its content.
+   - `android:layout_height="wrap_content"`: Specifies that the height of the `ImageView` should wrap its content.
+   - `android:layout_centerInParent="true"`: Positions the `ImageView` in the center of its parent layout.
+   - `android:src="@drawable/bring_to_mind"`: Sets the image displayed in the `ImageView` to the drawable resource named `bring_to_mind`.
+   - `tools:ignore="ContentDescription"`: Ignores the requirement for providing content descriptions for accessibility tools during design time.
+   - `android:padding="80sp"`: Adds padding around the image view to provide spacing between the image and the edges of its parent layout.
+<br/>
+ *********create the splash_screen.xml file
+ <br/>
+ Overall, this layout creates a splash screen with a black background and a centered image view displaying the specified image.
+ 
+ This XML layout defines a simple splash screen with a centered image view displaying an image named `bring_to_mind`. Here's an overview:
+ 
+ - **Root Layout**: The root layout is a `RelativeLayout` which allows positioning views relative to each other or the parent layout.
+ <br/>
+ - **Namespaces**:
+   - `xmlns:android="http://schemas.android.com/apk/res/android"`: Defines the Android namespace.
+ <br/>
+ - **Attributes**:
+   - `android:layout_width="match_parent"`: Specifies that the width of the layout should match the width of its parent.
+   - `android:layout_height="match_parent"`: Specifies that the height of the layout should match the height of its parent.
+   - `android:background="@color/black"`: Sets the background color of the layout to black.
+ <br/>
+ - **ImageView**:
+   - `android:id="@+id/logo_image"`: Assigns the identifier `logo_image` to the `ImageView` element.
+   - `android:layout_width="wrap_content"`: Specifies that the width of the `ImageView` should wrap its content.
+   - `android:layout_height="wrap_content"`: Specifies that the height of the `ImageView` should wrap its content.
+   - `android:layout_centerInParent="true"`: Positions the `ImageView` in the center of its parent layout.
+   - `android:src="@drawable/bring_to_mind"`: Sets the image displayed in the `ImageView` to the drawable resource named `bring_to_mind`.
+ 
+ <br/>
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ *****create a activity_main.xml we have to create
+ 
+ Overall, this layout consists of a RecyclerView to display a list of to-do items and a FloatingActionButton for adding new tasks. 
+ The FloatingActionButton is positioned at the bottom end of the screen, providing easy access for users to add new tasks.
+ The RecyclerView takes up the entire screen, and the FloatingActionButton is positioned at the bottom end of the layout.
+ <br/>
+ 
+ This XML layout code defines the layout for the main activity of a to-do list app. Let's break it down:
+ <br/>
+ 1. **Root Layout - RelativeLayout**: 
+    - This layout is a `RelativeLayout` which allows arranging child views relative to each other or to the parent. 
+    - It sets the layout width and height to match the parent (`match_parent`), meaning it fills the entire screen.
+ <br/>
+ 2. **RecyclerView - todoListRecyclerView**:
+    - This is a `RecyclerView`, a view group that displays a scrolling list of items. 
+    - It's set to match the parent's width and height, ensuring it fills the entire screen.
+    - It's assigned an ID `todoListRecyclerView` for identification in the code.
+    - The `backgroundTint` attribute sets the background color of the RecyclerView to the default background color defined in the theme.
+ <br/>
+ 3. **Floating Action Button - newTaskButton**:
+    - This is an `ExtendedFloatingActionButton` from the Material Design library, typically used for adding new items or actions.
+    - It's set to wrap its content in width and height.
+    - The text "New Task" is displayed on the button.
+    - It's assigned an ID `newTaskButton` for identification in the code.
+    - The background tint of the button is set to the primary color defined in the theme (`?attr/colorPrimary`), ensuring consistency with the app's design.
+    - The text color is set to the color defined in the theme for text on primary surfaces (`?colorOnPrimary`).
+    - It's aligned to the bottom end of the parent layout.
+    - Padding and margin are applied to provide spacing around the button.
+    - An icon is set using the `app:icon` attribute, which is displayed alongside the text.
+    - The tint color of the icon is set to the color defined in the theme for text on primary surfaces (`?colorOnPrimary`).
+ 
+ <br/>
+ 
+ 
+ ******create the fragment_new_task_sheet.xml file <br/>
+ 
+ Overall, this layout provides a clean and organized UI for users to input task details such as name, description, and select a time for the task. 
+ The buttons allow users to interact with the form by selecting a time and saving the task.
+ 
+ <br/>
+ Sure! Here's an overview of the XML layout code provided:
+ <br/>
+ 1. **Root Layout**: The root layout is a vertical `LinearLayout` that contains various UI components for creating a new task.
+ <br/>
+ 2. **Task Title**: A `TextView` displaying "New Task" at the top of the layout. It's styled to appear like a title with a larger font size.
+ <br/>
+ 3. **Name Input Field**: A `TextInputLayout` containing a `TextInputEditText` for entering the name of the task. It's styled as an outlined box with dense padding.
+ <br/>
+ 4. **Description Input Field**: Another `TextInputLayout` containing a `TextInputEditText` for entering the description of the task. Also styled as an outlined box with dense padding.
+ <br/>
+ 5. **Time Picker Button**: A `MaterialButton` used for selecting the time for the task. It spans the entire width of the layout, centered horizontally, and has margins applied. Displays the text "Select Time".
+ <br/>
+ 6. **Save Button**: Another `MaterialButton` for saving the task. Similar attributes to the time picker button but with a different background tint and text color. Displays the text "Save".
+ 
+ <br/>
+ 
+ *****create a TaskViewModel.kt file
+ <br/>
+ Overall, the `TaskViewModel` class serves as a bridge between the UI (such as activities or fragments) and the data layer (repository). 
+ It provides a clean and lifecycle-aware way to manage and observe task-related data.
+ 
+ Sure, here's an overview of the provided code:
+ <br/>
+ 1. **TaskViewModel**:
+    - Manages the data related to tasks using the Android Architecture Components, specifically the `ViewModel`.
+    - It holds a LiveData object called `taskItems`, which represents a list of `TaskItem` objects retrieved from the repository.
+    - Provides functions to add, update, and mark tasks as completed. These functions use coroutines to perform database operations asynchronously in the background.
+    <br/>
+ 2. **TaskItemModelFactory**:
+    - A factory class responsible for creating instances of `TaskViewModel`.
+    - It implements the `ViewModelProvider.Factory` interface, providing a way to instantiate `TaskViewModel` objects with the necessary dependencies, such as the repository.
+    <br/>
+ 3. **Functions**:
+    - `addTaskItem`: Adds a new task to the repository.
+    - `updateTaskItem`: Updates an existing task in the repository.
+    - `setCompleted`: Marks a task as completed in the repository.
+    - These functions use coroutines and the `viewModelScope` to perform database operations asynchronously, ensuring that they don't block the main UI thread.
+ 
+    <br/>
+ ********create a NewTaskSheet.kt file 
+ <br/>
+ Overall, this code encapsulates the UI logic for creating and editing tasks using a bottom sheet dialog, and it interacts with the `TaskViewModel` to handle data operations.
+ 
+ This code defines a `BottomSheetDialogFragment` subclass called `NewTaskSheet`, which is responsible for displaying a dialog fragment to create or edit a task. Here's an overview:
+ <br/>
+ 1. **Class Declaration**:
+    - `NewTaskSheet` extends `BottomSheetDialogFragment`, making it a dialog fragment that appears as a modal dialog anchored to the bottom of the screen.
+    <br/>
+ 2. **Properties**:
+    - `binding`: Holds the view binding instance for the layout of the dialog fragment.
+    - `taskViewModel`: Instance of `TaskViewModel` obtained through `ViewModelProvider`, used to interact with the data layer.
+    - `dueTime`: Represents the due time of the task being created or edited.
+    <br/>
+ 3. **Lifecycle Methods**:
+    - `onCreateView`: Inflates the layout for the dialog fragment and initializes the binding.
+    - `onViewCreated`: Called after the view has been created, used for setting up UI elements and event listeners.
+    <br/>
+ 4. **UI Setup**:
+    - Sets up the title of the dialog fragment based on whether it's for creating a new task or editing an existing one.
+    - Initializes the text fields with task details if editing an existing task.
+    - Configures the click listeners for the "Save" button and the time picker button.
+    <br/>
+ 5. **Time Picker**:
+    - `openTimePicker`: Opens a time picker dialog to select the due time for the task.
+    - `updateTimeButtonText`: Updates the text on the time picker button with the selected due time.
+    <br/>
+ 6. **Save Action**:
+    - `saveAction`: Called when the user clicks the "Save" button.
+    - Retrieves the task name, description, and due time from the UI.
+    - Creates a new `TaskItem` object with the provided details and adds it to the database if it's a new task, or updates the existing task if editing.
+    - Clears the input fields and dismisses the dialog fragment.
+    <br/>
+
+ ********lets create a TaskItem.kt file <br/>
+ 
+ 
+ Overall, this class encapsulates the properties and functionality of a task item, including parsing and formatting date/time strings, determining task completion status, and providing resources for UI representation.
+ This code defines a `TaskItem` class that represents a single task in the to-do list application. Here's an overview:
+ <br/>
+ 1. **Class Declaration**:
+    - `TaskItem` class represents a single task item.
+    - Annotating the class with `@Entity(tableName = "task_item_table")` indicates that instances of this class will be stored in a SQLite table named "task_item_table" using Room database.
+    <br/>
+ 2. **Properties**:
+    - `name`: Holds the name/title of the task.
+    - `desc`: Holds the description/details of the task.
+    - `dueTimeString`: Represents the due time of the task as a string.
+    - `completedDateString`: Represents the completion date of the task as a string.
+    - `id`: Primary key auto-generated by Room database.
+    <br/>
+ 3. **Functions**:
+    - `completedDate()`: Parses the completion date string into a `LocalDate` object.
+    - `dueTime()`: Parses the due time string into a `LocalTime` object.
+    - `isCompleted()`: Checks if the task is completed based on the completion date.
+    - `imageResource()`: Returns the drawable resource ID for the task item's image representation (checked or unchecked).
+    - `imageColor()`: Returns the color for the task item's image representation (purple for completed, black for incomplete).
+    <br/>
+ 4. **Companion Object**:
+    - `timeFormatter`: `DateTimeFormatter` for parsing and formatting time strings.
+    - `dateFormatter`: `DateTimeFormatter` for parsing and formatting date strings.
+    <br/>
+ 5. **Private Helper Functions**:
+    - `purple()`: Returns the color value for the completed task image.
+    - `black()`: Returns the color value for the incomplete task image.
+    <br/>
+ 
+ ********create task_item_cell.xml file
+ <br/>
+ This layout creates a visually appealing representation of a task item, including a checkbox button for completion status, the name of the task, and its due time.
+ 
+ This XML layout file defines the visual representation of a single task item cell in the to-do list application. Here's an overview:
+ <br/>
+ 1. **Root Element**:
+    - `<androidx.cardview.widget.CardView>`: This is used to create a card-like container for the task item.
+        <br/>
+ 2. **Attributes**:
+    - `android:id="@+id/taskCellContainer"`: Assigns an ID to the CardView container.
+    - `android:layout_width="match_parent"` and `android:layout_height="90dp"`: Specifies the width and height of the CardView.
+    - `app:cardCornerRadius="5dp"`: Sets the corner radius of the CardView to create rounded corners.
+    - `android:layout_margin="5dp"`: Adds a margin around the CardView.
+    <br/>
+ 3. **Child Views**:
+    - `<LinearLayout>`: This is used as the container for the content of the task item cell. It's oriented horizontally.
+        <br/>
+ 4. **Child Views Inside LinearLayout**:
+    - `<ImageButton>`: Represents a button for marking the task as complete. It shows an unchecked checkbox icon by default.
+      - `android:id="@+id/completeButton"`: Assigns an ID to the ImageButton.
+      - `android:contentDescription="@string/checkbox"`: Provides a description for accessibility purposes.
+      - `android:src="@drawable/unchecked_24"`: Sets the image resource for the ImageButton.
+    - `<TextView>`: Displays the name/title of the task item.
+      - `android:id="@+id/name"`: Assigns an ID to the TextView.
+      - `android:text="@string/place_holder"`: Displays a placeholder text initially.
+      - `android:layout_weight="1"`: Allows the TextView to take up remaining space in the LinearLayout.
+    - `<TextView>`: Displays the due time of the task item.
+      - `android:id="@+id/dueTime"`: Assigns an ID to the TextView.
+      - `android:text="@string/place_holder"`: Displays a placeholder text initially.
+      <br/>
+ ******create TaskItemAdapter.kt file
+ <br/>
+ Overall, this adapter class acts as a bridge between the data set (`taskItems`) and the RecyclerView, managing the creation of item views and binding data to those views.
+ 
+ This Kotlin class `TaskItemAdapter` is an adapter used to bind the data of `TaskItem` objects to the views within a RecyclerView. Here's an overview of the code:
+ <br/>
+ - **Class Definition**:
+   - `TaskItemAdapter`: This class extends `RecyclerView.Adapter<TaskItemViewHolder>`, which means it's an adapter specifically designed for RecyclerViews that display `TaskItem` objects.
+    <br/>
+ - **Properties**:
+   - `taskItems`: A list of `TaskItem` objects that will be displayed in the RecyclerView.
+   - `clickListener`: An instance of `TaskItemClickListener` interface used for handling item click events.
+   <br/>
+ - **Functions**:
+   - `onCreateViewHolder`: This function is responsible for inflating the layout of a single item view. It inflates the `TaskItemCellBinding` layout using LayoutInflater.
+   - `onBindViewHolder`: This function is called for each item in the RecyclerView to bind the data of the `TaskItem` object to the views held by the `TaskItemViewHolder`.
+   - `getItemCount`: Returns the total number of items in the `taskItems` list.
+   <br/>
+ - **Other**:
+   - `TaskItemViewHolder`: The adapter utilizes a custom ViewHolder class named `TaskItemViewHolder` to hold references to the views of a single item view.
+   - `TaskItemCellBinding`: This class represents the binding for the layout `task_item_cell.xml`, which defines the appearance of a single item view in the RecyclerView.
+   <br/>
+ 
+ *******create TaskItemViewHolder.kt file
+ <br/>
+ Overall, this ViewHolder class is responsible for binding the data of a `TaskItem` object to the views within a single item view in the RecyclerView.
+ 
+ This Kotlin class `TaskItemViewHolder` serves as a ViewHolder for individual task item views in the RecyclerView. Here's an overview of the code:
+ <br/>
+ - **Class Definition**:
+   - `TaskItemViewHolder`: This class extends `RecyclerView.ViewHolder`, indicating that it represents a single item view in the RecyclerView.
+   <br/>
+ - **Properties**:
+   - `context`: The context of the application or activity.
+   - `binding`: An instance of `TaskItemCellBinding`, which represents the layout of the task item view.
+   - `clickListener`: An instance of `TaskItemClickListener` interface used for handling item click events.
+   <br/>
+ - **Functions**:
+   - `bindTaskItem`: This function binds the data of a `TaskItem` object to the views held by the ViewHolder.
+     - Sets the name of the task item to the corresponding TextView.
+     - If the task item is completed, strikes through the text of the task name and due time.
+     - Sets the image resource and color of the complete button based on the completion status of the task.
+     - Sets an onClickListener for the complete button to handle task completion.
+     - Sets an onClickListener for the entire task item view to handle editing the task.
+     - Formats and sets the due time of the task item to the corresponding TextView.
+ 
+     <br/>
+ 
+ *****create the TaskItemClickListener.kt file
+ <br/>
+ Overall, this interface serves as a contract for handling user interactions with task items in a list, providing methods to respond to editing and completing tasks. 
+ Classes implementing this interface will need to override these methods to define the desired behavior for editing and completing task items.
+ <br/>
+ The `TaskItemClickListener` interface defines two methods:
+ 
+ 1. `editTaskItem(taskItem: TaskItem)`: This method is called when a user wants to edit a task item. It receives the `TaskItem` object representing the task item to be edited as a parameter.
+ 
+ 2. `completeTaskItem(taskItem: TaskItem)`: This method is called when a user wants to mark a task item as completed. It also receives the `TaskItem` object representing the task item to be completed as a parameter.
+ <br/>
+ 
+ Now we have created the BottomSheetDialog and the RecyclerView
+ <br/>
+ Now by using SQLite Database we are storing the data
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <br/>
+ *******create the TaskItemRepository.kt file
+ <br/>
+ Overall, the `TaskItemRepository` class encapsulates the logic for accessing and modifying task item data in the database.
+  It provides a structured and thread-safe way for the ViewModel to interact with the data source, promoting separation of concerns and maintainability in the app architecture.
+ 
+ This code defines a `TaskItemRepository` class, which acts as an intermediary between the ViewModel and the underlying data source (in this case, a Room database). Here's an overview:
+ <br/>
+ - **Class Definition**: `TaskItemRepository` is responsible for managing data operations. It typically abstracts the data source from the rest of the app and provides a clean API for accessing and manipulating data.
+ <br/>
+ - **Properties**:
+   - `taskItemDao`: An instance of `TaskItemDao`, which serves as the Data Access Object for performing database operations related to `TaskItem` entities.
+   - `allTaskItems`: A Flow of lists of `TaskItem` objects. This Flow represents the data stream of all task items in the database and is observed by the ViewModel to reactively update the UI when the data changes.
+   <br/>
+ - **Functions**:
+   - `insertTaskItem(taskItem: TaskItem)`: Inserts a new task item into the database. This function is annotated with `@WorkerThread` to indicate that it performs database operations on a background thread.
+   - `updateTaskItem(taskItem: TaskItem)`: Updates an existing task item in the database. Also annotated with `@WorkerThread` for background thread execution.
+ 
+   <br/>
+ 
+ *****create the TaskItemDao.kt file
+ <br/>
+ Overall, `TaskItemDao` provides a structured way to interact with the underlying SQLite database using Room's DAO functionality. 
+ It abstracts away the complexity of database operations and provides a clean API for performing CRUD (Create, Read, Update, Delete) operations on task items.
+ 
+ This code defines a Data Access Object (DAO) interface named `TaskItemDao`, which specifies the database operations that can be performed on the `TaskItem` entity. Here's an overview:
+ <br/>
+ - **Annotation**: The `@Dao` annotation indicates that this interface is a Room DAO, which allows Room to generate necessary implementation code at compile time.
+ <br/>
+ - **Functions**:
+   - `allTaskItems()`: This function retrieves all task items from the database and returns them as a Flow of lists of `TaskItem` objects. The use of `Flow` enables observation of data changes in real-time.
+   - `insertTaskItem(taskItem: TaskItem)`: Inserts a new task item into the database. The `suspend` keyword indicates that this function can be suspended and executed asynchronously.
+   - `updateTaskItem(taskItem: TaskItem)`: Updates an existing task item in the database with the provided `taskItem` object.
+   - `deleteTaskItem(taskItem: TaskItem)`: Deletes a specified task item from the database.
+   <br/>
+ - **Annotations**:
+   - `@Query`: Used to execute a SQL query to retrieve data from the database. In this case, it selects all task items from the `task_item_table` and orders them by ID in ascending order.
+   - `@Insert`: Specifies an insert operation with `OnConflictStrategy.REPLACE`, which means that if a conflict occurs (i.e., if the inserted item already exists in the database), it will be replaced.
+   - `@Update`: Indicates an update operation.
+   - `@Delete`: Indicates a delete operation.
+   <br/>
+ ********create the TaskItemDataBase.kt file 
+ <br/>
+ Overall, `TaskItemDatabase` serves as the main entry point for accessing the Room database in the application.
+  It provides methods for obtaining DAO instances and ensures that database instances are created in a thread-safe manner.
+ 
+ This code defines a Room database class named `TaskItemDatabase`. Here's an overview:
+ <br/>
+ - **Annotation**: The `@Database` annotation is used to declare that this class represents a Room database. It takes parameters to specify the entities (in this case, `TaskItem`), database version, and whether to export the schema.
+ <br/>
+ - **Abstract Functions**:
+   - `taskItemDao()`: This abstract function declares a method to obtain the DAO interface for interacting with the `TaskItem` entity.
+   <br/>
+ - **Companion Object**:
+   - `INSTANCE`: This is a volatile variable that holds the reference to the database instance. It's marked as volatile to ensure that its value is always up-to-date across all threads.
+   - `getDatabase(context: Context)`: This companion function provides a convenient way to obtain an instance of the `TaskItemDatabase`.
+  It follows the singleton pattern to ensure that only one instance of the database is created throughout the application's lifecycle. 
+ If an instance already exists, it returns it; otherwise, it creates a new instance using Room's `databaseBuilder` method.
+ <br/>
+ 
+ **********create the ToDoAppication.kt file
+ <br/>
+  By defining these properties in the application class, they can be accessed globally throughout the application's lifecycle. 
+ This approach ensures that there's only one instance of the database and repository, promoting efficiency and consistency in data management.
+ 
+ This code defines a custom `Application` class named `TodoApplication`. Here's an overview:
+ <br/>
+ - **Inheritance**: The class inherits from `Application`, which is the base class for maintaining global application state.
+ <br/>
+ - **Properties**:
+   - `database`: This property is initialized lazily using the `by lazy` delegate. It represents an instance of the `TaskItemDatabase` class obtained by calling the `getDatabase` function, passing the application context (`this`) as a parameter.
+   - `repository`: This property is also initialized lazily using the `by lazy` delegate. It represents an instance of the `TaskItemRepository` class, which is constructed by passing the DAO interface obtained from the `database` property.
+   <br/>
+ - **Purpose**: The `TodoApplication` class serves as the entry point for initializing the Room database and repository in the application.
+ <br/>
+ 
+ 
+ Add all of them into an MainActivty.kt file
+ 
+ Overall, this code sets up the main activity of a to-do list application, handles user interactions to add, edit, and complete tasks, and updates the UI accordingly using ViewModel and RecyclerView.
+ 
+ This Kotlin code represents the `MainActivity` of a to-do list application. Here's an overview:
+ <br/>
+ - **Imports**: Import necessary classes and components used in the activity, such as `MediaPlayer`, `Intent`, and others.
+ <br/>
+ - **Class Definition**: `MainActivity` is declared as a subclass of `AppCompatActivity` and implements the `TaskItemClickListener` interface.
+ <br/>
+ - **Properties**:
+   - `binding`: An instance of `ActivityMainBinding`, which is auto-generated based on the XML layout file `activity_main.xml`. It provides direct access to views within the layout.
+   - `taskViewModel`: An instance of `TaskViewModel`, obtained using the `viewModels` delegate. It holds and manages the data related to tasks.
+   - `mediaPlayer`: An instance of `MediaPlayer`, used to play audio for reminders.
+   <br/>
+ - **onCreate()**: This method is called when the activity is first created. It sets up the activity by inflating the layout, setting the content view, and initializing UI components.
+   - It sets a click listener on the "New Task" button (`newTaskButton`) to show a dialog fragment (`NewTaskSheet`) for adding a new task.
+   - It calls `setRecyclerView()` to set up the RecyclerView to display the list of tasks.
+   <br/>
+ - **setRecyclerView()**: Sets up the RecyclerView to display the list of tasks retrieved from the `taskViewModel`. It observes changes in the list of tasks and updates the RecyclerView accordingly.
+ <br/>
+ - **editTaskItem()**: Implements the `editTaskItem` method from the `TaskItemClickListener` interface. It opens the `NewTaskSheet` dialog fragment to edit the selected task.
+ <br/>
+ - **completeTaskItem()**: Implements the `completeTaskItem` method from the `TaskItemClickListener` interface. It marks the selected task as completed using the `taskViewModel`.
+ <br/>
+ 
+ 
+ 
+        </p>
+    </body>
+
+</html>
